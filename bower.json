@@ -1,0 +1,25 @@
+{
+  "name": "tiny",
+  "description": "first nodejs service",
+  "main": "app.js",
+  "authors": [
+    "tiny"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "nodejs"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
