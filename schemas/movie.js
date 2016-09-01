@@ -4,7 +4,14 @@
 var mongoose = require('mongoose');
 
 var MovieSchema = new mongoose.Schema({
-    title:String,
+    doctor: String,
+    title: String,
+    language: String,
+    country: String,
+    summary: String,
+    flash: String,
+    poster: String,
+    year: Number,
     meta: {
         createAt: {
             type: Date,
@@ -19,7 +26,7 @@ var MovieSchema = new mongoose.Schema({
 
 MovieSchema.pre('save', function(next) {
     if(this.isNew) {
-        this.mate.createAt = this.meta.updateAt = Date.now();
+        this.meta.createAt = this.meta.updateAt = Date.now();
     }else{
         this.meta.updateAt = Date.now();
     }
