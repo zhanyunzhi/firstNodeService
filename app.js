@@ -21,7 +21,11 @@ console.log('service star on ' + port);
 
 app.get('/',function(req, res){
    res.render('index',{
-      title:'Tiny首页'
+      title:'Tiny首页',
+      movies:[{
+         _id:1,
+         poster:''
+      }]
    }) ;
 });
 
@@ -33,12 +37,20 @@ app.get('/movie/:id',function(req, res){
 
 app.get('/admin/movie',function(req, res){
    res.render('admin',{
-      title:'Tiny后台管理页'
+      title:'Tiny后台录入页',
+      movie:{
+         title:'',
+         doctor:''
+      }
    }) ;
 });
 
 app.get('/admin/list',function(req, res){
    res.render('list',{
-      title:'Tiny列表页'
+      title:'Tiny列表页',
+      movies:[{
+         _id:1,
+         title:''
+      }]
    }) ;
 });
