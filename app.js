@@ -21,7 +21,6 @@ console.log('service star on ' + port);
 
 app.get('/',function(req, res){
    Movie.fetch(function(err, movies) {
-      console.log(movies)
       if(err){
          console.log(err)
       }
@@ -87,7 +86,7 @@ app.post('/admin/movie/new', function(req, res) {
          if(err) {
             console.log(err);
          }
-         _movie = _.extend(movie. movieObj)
+         _movie = _.extend(movie, movieObj)
          _movie.save(function(err, movie) {
             if(err) {
                console.log(err);
@@ -115,6 +114,7 @@ app.post('/admin/movie/new', function(req, res) {
    }
 });
 
+//list page
 app.get('/admin/list',function(req, res){
    Movie.fetch(function(err, movies) {
       if(err){
@@ -125,5 +125,18 @@ app.get('/admin/list',function(req, res){
          movies:movies
       }) ;
    });
+});
 
+//list delete movie
+app.delete('/admin/list', function(req, res) {
+   var id = req.query.id;
+   if(id) {
+      Movie.remove({_id: id}, function(err, movie) {
+         if(err) {
+            console.log(err);
+         }else{
+            res.json({success: 1});
+         }
+      })
+   }
 });
